@@ -7,6 +7,7 @@ axios.defaults.params = {};
 axios.interceptors.request.use(config => {
     const endpoint = `https://gateway.marvel.com/v1/public/${config.url}?apikey=${PUBLIC_KEY}&ts=${TS}&hash=${HASH}`;
     config.url = endpoint;
+    console.log('Consultando =>', endpoint);
     return config;
 }, function (err) {
     return Promise.reject(err);

@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const getAll = async (query = { offset: 0, limit }) => {
+const getAll = async (query = { offset: 0, limit:20 }) => {
     return await axios
         .get(`characters`, { params: query })
         .then(response => {
@@ -16,7 +16,7 @@ const getAll = async (query = { offset: 0, limit }) => {
             }
         })
         .catch((error) => {
-            console.log(error);
+            return error;
         })
 };
 
