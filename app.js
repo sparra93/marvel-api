@@ -6,7 +6,6 @@ const routes = require('./app/routes');
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors());
 app.options('*', cors());
 routes(app);
 
