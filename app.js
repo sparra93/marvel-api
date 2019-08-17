@@ -6,7 +6,7 @@ const routes = require('./app/routes');
 
 const app = express();
 app.use(bodyParser.json());
-app.options('*', cors());
+app.use(cors());
 routes(app);
 
 app.listen(process.env.PORT || 9000, () => {
