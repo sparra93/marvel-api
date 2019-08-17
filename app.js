@@ -6,11 +6,9 @@ const routes = require('./app/routes');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
+app.options('*', cors());
 routes(app);
-app.use(cors({
-    origin: 'https://angular-marvel-app.herokuapp.com',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}));
 
 app.listen(process.env.PORT || 9000, () => {
     console.log('Started on port ', process.env.PORT || 9000);
