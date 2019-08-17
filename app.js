@@ -5,7 +5,10 @@ const cors = require('cors');
 const routes = require('./app/routes');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'https://angular-marvel-app.herokuapp.com',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}));
 app.use(bodyParser.json());
 routes(app);
 
